@@ -1,13 +1,25 @@
 const body_parser = require("body-parser");
 const obtener_palindromos = require("./obtener_palindromos");
 const express = require("express");
-const app = express();
+const app = express()
 
-app.use("/public", express.static("../frontend/dist"));
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 app.use(body_parser.json());
 
-app.get('/api/obtener/palindromos', obtener_palindromos)
+app.use("/", express.static("../dist/palindromo"));
+
+app.get('/api/obtener_palindromos', obtener_palindromos);
+
+app.all("*", (req, res) => {
+    res.status(200).sendFile(`/`, {
+        root: "../dist/palindromo"
+    })
+})
    
 app.listen(3000)
 
