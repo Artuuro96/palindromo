@@ -1,0 +1,23 @@
+{
+  "name": "palindromo",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Artuuro96/palindromo.git"
+  },
+  "author": "Arturo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Artuuro96/palindromo/issues"
+  },
+  "homepage": "https://github.com/Artuuro96/palindromo#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.3.5"
+  }
+}
