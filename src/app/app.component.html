@@ -3,6 +3,10 @@
 		<a href="#" class="brand-logo center">Números Palíndromos</a>
 	</div>
 </nav>
+<div class="centrar" [hidden]="!cargando">
+	<img src="../assets/svg-loaders/grid.svg" width="80" alt="">
+	<b>Procesando</b> 
+</div>
 <br>
 <div class="row">
 	<div class="col s12 m6">
@@ -10,6 +14,9 @@
 			<div class="card-content">
 				<span class="card-title center">Calcula números palíndromos</span>
 				<div class="row">
+					<h6>
+						<b>Suma: {{datos.suma}}</b>
+					</h6>
 					<h6>Ingresa el número límite</h6>
 					<div class="input-field col s6">
 						<i class="material-icons prefix">filter_9_plus</i>
@@ -17,23 +24,70 @@
 						<label for="icon_prefix"></label>
 					</div>
 				</div>	
+				<div class="row" style="max-height: 20em;overflow-y: scroll;">
+					<table>
+						<thead>
+							<tr>
+								<th>Index</th>
+								<th>Decimal</th>
+								<th>Binario</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor = "let palindromo of datos.palindromos">
+								<td>{{palindromo.index}}</td>
+								<td>{{palindromo.decimal}}</td>
+								<td>{{palindromo.binario}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<div class="card-action">
 				<button class="btn waves-effect waves-light" (click)="calcula_palindromos()">
 					Calcular <i class="material-icons right">send</i>
 				</button>
+				<button class="btn waves-effect waves-light light-blue darken-2" (click)="guardar_palindromos()">
+					Guardar <i class="material-icons right">save</i>
+				</button>
 			</div>
 		</div>
 	</div>
 	<div class="col s12 m6">
-		<div class="card blue-grey">
-		<div class="card-content white-text">
+		<div class="card">
+		<div class="card-content">
 			<span class="card-title center">Log de Peticiones</span>
+			<ul class="collapsible">
+				<li>
+					<div class="row">
+						<div class="col s4">
+							Id Mongo
+						</div>
+						<div class="col s4">
+							Suma
+						</div>
+						<div class="col s4">
+							Número de Palindromos
+						</div>
+					</div>
+				</li>
+				<li *ngFor="let log of logs">
+					<div class="row">
+						<div class="col s4">
+							{{log._id}}
+						</div>
+						<div class="col s4">
+							{{log.suma}}
+						</div>
+						<div class="col s4">
+							{{log.palindromos.length}}
+						</div>
+					</div>
+				</li>
+			</ul>
 		</div>
 		<div class="card-action">
-			<button class="btn waves-effect waves-light red lighten-1" name="action">Eliminar registros
-				<i class="material-icons right">delete</i>
-			</button>
+			
 		</div>
 	</div>
 </div>

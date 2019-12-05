@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav>\n\t<div class=\"nav-wrapper teal lighten-2\">\n\t\t<a href=\"#\" class=\"brand-logo center\">Números Palíndromos</a>\n\t</div>\n</nav>\n<br>\n<div class=\"row\">\n\t<div class=\"col s12 m6\">\n\t\t<div class=\"card\">\n\t\t\t<div class=\"card-content\">\n\t\t\t\t<span class=\"card-title center\">Calcula números palíndromos</span>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<h6>Ingresa el número límite</h6>\n\t\t\t\t\t<div class=\"input-field col s6\">\n\t\t\t\t\t\t<i class=\"material-icons prefix\">filter_9_plus</i>\n\t\t\t\t\t\t<input id=\"icon_prefix\" [(ngModel)]=\"limite\" type=\"text\" class=\"validate\">\n\t\t\t\t\t\t<label for=\"icon_prefix\"></label>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\n\t\t\t</div>\n\t\t\t<div class=\"card-action\">\n\t\t\t\t<button class=\"btn waves-effect waves-light\" (click)=\"calcula_palindromos()\">\n\t\t\t\t\tCalcular <i class=\"material-icons right\">send</i>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"col s12 m6\">\n\t\t<div class=\"card blue-grey\">\n\t\t<div class=\"card-content white-text\">\n\t\t\t<span class=\"card-title center\">Log de Peticiones</span>\n\t\t</div>\n\t\t<div class=\"card-action\">\n\t\t\t<button class=\"btn waves-effect waves-light red lighten-1\" name=\"action\">Eliminar registros\n\t\t\t\t<i class=\"material-icons right\">delete</i>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav>\n\t<div class=\"nav-wrapper teal lighten-2\">\n\t\t<a href=\"#\" class=\"brand-logo center\">Números Palíndromos</a>\n\t</div>\n</nav>\n<div class=\"centrar\" [hidden]=\"!cargando\">\n\t<img src=\"../assets/svg-loaders/grid.svg\" width=\"80\" alt=\"\">\n\t<b>Procesando</b> \n</div>\n<br>\n<div class=\"row\">\n\t<div class=\"col s12 m6\">\n\t\t<div class=\"card\">\n\t\t\t<div class=\"card-content\">\n\t\t\t\t<span class=\"card-title center\">Calcula números palíndromos</span>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<h6>\n\t\t\t\t\t\t<b>Suma: {{datos.suma}}</b>\n\t\t\t\t\t</h6>\n\t\t\t\t\t<h6>Ingresa el número límite</h6>\n\t\t\t\t\t<div class=\"input-field col s6\">\n\t\t\t\t\t\t<i class=\"material-icons prefix\">filter_9_plus</i>\n\t\t\t\t\t\t<input id=\"icon_prefix\" [(ngModel)]=\"limite\" type=\"text\" class=\"validate\">\n\t\t\t\t\t\t<label for=\"icon_prefix\"></label>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\n\t\t\t\t<div class=\"row\" style=\"max-height: 20em;overflow-y: scroll;\">\n\t\t\t\t\t<table>\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th>Index</th>\n\t\t\t\t\t\t\t\t<th>Decimal</th>\n\t\t\t\t\t\t\t\t<th>Binario</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr *ngFor = \"let palindromo of datos.palindromos\">\n\t\t\t\t\t\t\t\t<td>{{palindromo.index}}</td>\n\t\t\t\t\t\t\t\t<td>{{palindromo.decimal}}</td>\n\t\t\t\t\t\t\t\t<td>{{palindromo.binario}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"card-action\">\n\t\t\t\t<button class=\"btn waves-effect waves-light\" (click)=\"calcula_palindromos()\">\n\t\t\t\t\tCalcular <i class=\"material-icons right\">send</i>\n\t\t\t\t</button>\n\t\t\t\t<button class=\"btn waves-effect waves-light light-blue darken-2\" (click)=\"guardar_palindromos()\">\n\t\t\t\t\tGuardar <i class=\"material-icons right\">save</i>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"col s12 m6\">\n\t\t<div class=\"card\">\n\t\t<div class=\"card-content\">\n\t\t\t<span class=\"card-title center\">Log de Peticiones</span>\n\t\t\t<ul class=\"collapsible\">\n\t\t\t\t<li>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col s4\">\n\t\t\t\t\t\t\tId Mongo\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col s4\">\n\t\t\t\t\t\t\tSuma\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col s4\">\n\t\t\t\t\t\t\tNúmero de Palindromos\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t\t<li *ngFor=\"let log of logs\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col s4\">\n\t\t\t\t\t\t\t{{log._id}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col s4\">\n\t\t\t\t\t\t\t{{log.suma}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col s4\">\n\t\t\t\t\t\t\t{{log.palindromos.length}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t<div class=\"card-action\">\n\t\t\t\n\t\t</div>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -274,7 +274,7 @@ function __importDefault(mod) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("div, nav, a {\r\n    font-family: 'Roboto', sans-serif\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJkaXYsIG5hdiwgYSB7XHJcbiAgICBmb250LWZhbWlseTogJ1JvYm90bycsIHNhbnMtc2VyaWZcclxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("div, nav, a {\r\n    font-family: 'Roboto', sans-serif\r\n}\r\n\r\n.centrar{\r\n    z-index: 999;\r\n    position: absolute;\r\n    margin-right: 48%;\r\n    margin-left: 48%;\r\n    margin-top: 15%;\r\n    text-align: center;\r\n}\r\n\r\n.contenido{\r\n    max-height: 30%;\r\n    overflow-y: scroll;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSTtBQUNKOztBQUVBO0lBQ0ksWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixpQkFBaUI7SUFDakIsZ0JBQWdCO0lBQ2hCLGVBQWU7SUFDZixrQkFBa0I7QUFDdEI7O0FBRUE7SUFDSSxlQUFlO0lBQ2Ysa0JBQWtCO0FBQ3RCIiwiZmlsZSI6Ii4uL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJkaXYsIG5hdiwgYSB7XHJcbiAgICBmb250LWZhbWlseTogJ1JvYm90bycsIHNhbnMtc2VyaWZcclxufVxyXG5cclxuLmNlbnRyYXJ7XHJcbiAgICB6LWluZGV4OiA5OTk7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDQ4JTtcclxuICAgIG1hcmdpbi1sZWZ0OiA0OCU7XHJcbiAgICBtYXJnaW4tdG9wOiAxNSU7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5jb250ZW5pZG97XHJcbiAgICBtYXgtaGVpZ2h0OiAzMCU7XHJcbiAgICBvdmVyZmxvdy15OiBzY3JvbGw7XHJcbn0iXX0= */");
 
 /***/ }),
 
@@ -297,14 +297,52 @@ __webpack_require__.r(__webpack_exports__);
 let AppComponent = class AppComponent {
     constructor(http) {
         this.http = http;
-        this.url_base = `/api/obtener_palindromos?limite=`;
         this.title = 'palindromo';
+        this.cargando = false;
         this.limite = 1000;
         this.url = "";
+        this.datos = [];
+        this.logs = [];
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Content-Type': 'application/json'
+            })
+        };
     }
     calcula_palindromos() {
-        this.http.get(this.url_base + this.limite.toString()).subscribe(data => {
-            console.log("DATA", data);
+        this.cargando = true;
+        this.http.get(`/api/obtener_palindromos?limite=${this.limite.toString()}`).subscribe(res => {
+            this.cargando = false;
+            if (res.codigo == 200) {
+                this.datos = res.datos;
+            }
+            else {
+                console.error(res);
+            }
+        });
+    }
+    guardar_palindromos() {
+        this.cargando = true;
+        this.http.post(`/api/guardar_palindromos`, JSON.stringify(this.datos), this.httpOptions).subscribe(res => {
+            this.cargando = false;
+            if (res.codigo == 200) {
+                console.log("Datos guardados");
+                this.obtener_logs();
+            }
+            else {
+                console.error(res);
+            }
+        }, error => {
+            console.error(error);
+        });
+    }
+    obtener_logs() {
+        this.cargando = true;
+        this.http.get(`/api/obtener_log`).subscribe(res => {
+            this.cargando = false;
+            this.logs = res.datos;
+        }, error => {
+            console.error(error);
         });
     }
 };

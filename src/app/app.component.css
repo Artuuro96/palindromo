@@ -1,3 +1,17 @@
 div, nav, a {
     font-family: 'Roboto', sans-serif
 }
+
+.centrar{
+    z-index: 999;
+    position: absolute;
+    margin-right: 48%;
+    margin-left: 48%;
+    margin-top: 15%;
+    text-align: center;
+}
+
+.contenido{
+    max-height: 30%;
+    overflow-y: scroll;
+}

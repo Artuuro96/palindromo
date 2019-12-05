@@ -4,6 +4,7 @@
 const calcular_palindromos = (limite) => {
     let suma = 0;
     let palindromos = [];
+    let contador = 0;
 
     for (var j = 0; j < 2; j++) {
 
@@ -11,7 +12,11 @@ const calcular_palindromos = (limite) => {
         for (let i = 2; palindromo < limite; i++) {
             if (es_palindromo(palindromo, 10) && es_palindromo(palindromo, 2)) {
                 suma += palindromo;
-                palindromos.push(palindromo);
+                palindromos.push({
+                    index: contador++,
+                    binario: palindromo.toString(2),
+                    decimal: palindromo.toString(10)
+                });
             }
             palindromo = genera_palindromo(i, j);
         }

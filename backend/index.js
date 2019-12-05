@@ -1,5 +1,7 @@
 const body_parser = require("body-parser");
 const obtener_palindromos = require("./obtener_palindromos");
+const guardar_palindromos = require("./guardar_palindromos");
+const consultar_logs = require("./consultar_logs");
 const express = require("express");
 const app = express()
 
@@ -14,6 +16,10 @@ app.use(body_parser.json());
 app.use("/", express.static("../dist/palindromo"));
 
 app.get('/api/obtener_palindromos', obtener_palindromos);
+
+app.post('/api/guardar_palindromos', guardar_palindromos);
+
+app.get('/api/obtener_log', consultar_logs);
 
 app.all("*", (req, res) => {
     res.status(200).sendFile(`/`, {
