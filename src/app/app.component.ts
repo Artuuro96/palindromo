@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Respuesta } from '../interfaces/palindromo';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -22,6 +22,10 @@ export class AppComponent {
         })
     }
     Respuesta: Respuesta;
+
+    ngOnInit(){
+        this.obtener_logs();
+    }
 
     calcula_palindromos(){
         this.cargando = true;
